@@ -56,3 +56,38 @@ form .btn{justify-self:start}
 footer{padding:28px clamp(20px,5vw,48px);font-size:17px;color:var(--muted);display:flex;gap:24px;flex-wrap:wrap;justify-content:space-between;border-top:1px solid var(--line)}
 .legal{display:flex;gap:24px}
 @media(max-width:700px){section{padding-top:48px;padding-bottom:56px}.hero{padding-top:48px}h1{font-size:36px}section h2{font-size:30px}nav{gap:14px;font-size:17px}nav .btn-nav{display:none}.btn{font-size:20px;padding:16px 20px;white-space:nowrap}}
+
+/* Blog */
+.prose-wrap{padding:32px clamp(20px,5vw,48px) 64px}
+.prose{max-width:760px;margin:0 auto}
+.prose h1{font-size:44px;margin-bottom:20px}
+.prose h2{font-size:30px;margin:40px 0 12px}
+.prose p,.prose li{max-width:70ch}
+.prose ul,.prose ol{padding-left:1.3em;margin:0 0 16px}
+.prose li{margin-bottom:8px}
+.prose .lead{font-size:22px;color:var(--muted);margin:0 0 24px}
+.crumbs{font-size:17px;color:var(--muted);margin:0 0 20px}
+.compare{width:100%;border-collapse:collapse;margin:16px 0 24px;font-size:18px}
+.compare{table-layout:fixed}
+.compare th,.compare td{border:1px solid var(--line);padding:12px;text-align:left;vertical-align:top;overflow-wrap:anywhere;hyphens:auto}
+.compare th{background:var(--card)}
+.cta-box{margin:48px 0 0;padding:28px;background:var(--card);border:1px solid var(--line);border-radius:8px}
+.cta-box h2{margin:0 0 8px;font-size:28px}
+.cta-box p{margin:0 0 20px}
+.posts{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.post{display:block;text-decoration:none;color:inherit}
+.post:hover{border-color:var(--accent)}
+.post h3{color:var(--ink)}
+.post .more{display:inline-block;margin-top:12px;color:var(--accent);font-weight:500;font-size:18px}
+@media(max-width:700px){.prose h1{font-size:32px}.prose h2{font-size:26px}.compare{font-size:16px}.compare th,.compare td{padding:8px}}
+
+.meta{font-size:17px;color:var(--muted);margin:-8px 0 20px}
+.post-list{display:grid;gap:0;margin:8px 0 8px}
+.post-item{display:block;text-decoration:none;color:inherit;padding:24px 0;border-top:1px solid var(--line)}
+.post-item:last-child{border-bottom:1px solid var(--line)}
+.post-item time{display:block;font-size:17px;color:var(--muted);margin-bottom:6px}
+.post-item h2{font-size:28px;margin:0 0 8px;color:var(--ink)}
+.post-item p{margin:0;color:var(--muted)}
+.post-item .more{display:inline-block;margin-top:12px;color:var(--accent);font-weight:500;font-size:18px}
+.post-item:hover h2{text-decoration:underline}
+@media(max-width:700px){.post-item h2{font-size:24px}}
