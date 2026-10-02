@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://hofi-tec.ch/sitemap.xml
