@@ -1,0 +1,5 @@
+# Interne Dateien nicht ausliefern
+/.claude/*       /404.html  404!
+/.nojekyll       /404.html  404!
+/_headers        /404.html  404!
+/_redirects      /404.html  404!

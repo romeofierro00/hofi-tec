@@ -110,9 +110,9 @@
 <form name="kontakt" method="POST" action="/danke.html" data-netlify="true" netlify-honeypot="bot-field">
 <input type="hidden" name="form-name" value="kontakt">
 <p hidden><label>Nicht ausfüllen: <input name="bot-field"></label></p>
-<label>Dein Name<input required name="name" autocomplete="name"></label>
-<label>Deine Telefonnummer<input required type="tel" name="tel" autocomplete="tel"></label>
-<label>Worum geht es? (optional)<textarea name="msg" rows="3"></textarea></label>
+<label>Dein Name<input required name="name" autocomplete="name" maxlength="100"></label>
+<label>Deine Telefonnummer<input required type="tel" name="tel" autocomplete="tel" maxlength="30" pattern="[0-9+\(\)\/\- ]{6,30}" inputmode="tel" title="Bitte eine gültige Telefonnummer eingeben"></label>
+<label>Worum geht es? (optional)<textarea name="msg" rows="3" maxlength="1000"></textarea></label>
 <button class="btn primary" type="submit">Rückruf anfordern</button>
 </form>
 </div>
