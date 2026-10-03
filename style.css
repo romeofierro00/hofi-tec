@@ -91,3 +91,23 @@ footer{padding:28px clamp(20px,5vw,48px);font-size:17px;color:var(--muted);displ
 .post-item .more{display:inline-block;margin-top:12px;color:var(--accent);font-weight:500;font-size:18px}
 .post-item:hover h2{text-decoration:underline}
 @media(max-width:700px){.post-item h2{font-size:24px}}
+
+/* Fester Anruf-Knopf (nur Handy) */
+.call-fab{display:none}
+@media(max-width:700px){
+  .call-fab{display:block;position:fixed;left:16px;right:16px;bottom:16px;z-index:50;text-align:center;font-size:22px;font-weight:500;text-decoration:none;color:#fff;background:var(--accent);border:2px solid var(--accent);border-radius:12px;padding:16px 20px;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+  .call-fab:hover,.call-fab:focus{color:#fff;background:var(--ink)}
+  body{padding-bottom:88px}
+}
+/* Schriftgrössen-Knopf */
+.btn-fs{font:inherit;font-size:18px;font-weight:600;color:var(--ink);background:none;border:2px solid var(--accent);border-radius:8px;padding:6px 14px;min-height:44px;min-width:52px;cursor:pointer}
+.btn-fs:hover{background:var(--tint)}
+.btn-fs[hidden]{display:none}
+html.big body{font-size:24px}
+html.big .lead,html.big .prose .lead{font-size:27px}
+html.big nav,html.big .card p,html.big .ways p,html.big .post-item p,html.big .crumbs,html.big .small{font-size:22px}
+html.big .btn,html.big summary,html.big input,html.big textarea,html.big .call-fab{font-size:24px}
+html.big form label{font-size:22px}
+html.big .compare{font-size:20px}
+a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+html.big .btn{white-space:normal;text-align:center}
