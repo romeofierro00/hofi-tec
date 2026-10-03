@@ -1,0 +1,42 @@
+name: Deploy zu Hostpoint
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-hostpoint
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      HP_HOST: ${{ secrets.HOSTPOINT_HOST }}
+      HP_USER: ${{ secrets.HOSTPOINT_USER }}
+      HP_PASS: ${{ secrets.HOSTPOINT_PASSWORD }}
+      HP_PATH: ${{ secrets.HOSTPOINT_PATH }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Zugangsdaten prüfen
+        run: |
+          if [ -z "$HP_HOST" ] || [ -z "$HP_USER" ] || [ -z "$HP_PASS" ] || [ -z "$HP_PATH" ]; then
+            echo "Hostpoint-Zugangsdaten fehlen, Deploy übersprungen."
+            echo "SKIP=1" >> "$GITHUB_ENV"
+          fi
+      - name: lftp installieren
+        if: env.SKIP != '1'
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq lftp
+      - name: Dateien per SFTP hochladen
+        if: env.SKIP != '1'
+        run: |
+          lftp -u "$HP_USER","$HP_PASS" "sftp://$HP_HOST" <<LFTP
+          set sftp:auto-confirm yes
+          set net:max-retries 3
+          mirror -R --delete --verbose \
+            --exclude-glob .git/ --exclude-glob .github/ --exclude-glob .claude/ \
+            --exclude-glob .nojekyll --exclude-glob _headers --exclude-glob _redirects \
+            . "$HP_PATH"
+          quit
+          LFTP

@@ -1,0 +1,33 @@
+# Apache-Regeln für Hostpoint (ersetzt _headers und _redirects von Netlify)
+
+# Nur HTTPS
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://hofi-tec.ch%{REQUEST_URI} [L,R=301]
+
+# Ohne www
+RewriteCond %{HTTP_HOST} ^www\.hofi-tec\.ch$ [NC]
+RewriteRule ^ https://hofi-tec.ch%{REQUEST_URI} [L,R=301]
+
+# Interne Dateien nicht ausliefern
+RedirectMatch 404 ^/(\.(?!well-known)|_headers|_redirects|netlify\.toml|README)
+<FilesMatch "^(_headers|_redirects|\.htaccess)$">
+  Require all denied
+</FilesMatch>
+
+ErrorDocument 404 /404.html
+DirectoryIndex index.html
+Options -Indexes
+
+<IfModule mod_headers.c>
+  Header always set Content-Security-Policy "default-src 'none'; script-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; form-action 'self'; base-uri 'none'; frame-ancestors 'none'"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "DENY"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+  Header always set Cross-Origin-Opener-Policy "same-origin"
+  Header always set Cross-Origin-Resource-Policy "same-origin"
+  Header always set Strict-Transport-Security "max-age=31536000"
+</IfModule>
+
+AddDefaultCharset UTF-8
