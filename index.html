@@ -24,51 +24,97 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<symbol id="i-laptop" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="11" rx="1.5"/><path d="M2 19h20"/></symbol>
+<symbol id="i-phone" viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2"/><path d="M11 18.5h2"/></symbol>
+<symbol id="i-wifi" viewBox="0 0 24 24"><path d="M2.5 9a14 14 0 0 1 19 0"/><path d="M5.5 12.5a9.5 9.5 0 0 1 13 0"/><path d="M8.7 16a5 5 0 0 1 6.6 0"/><circle cx="12" cy="19.2" r="1" fill="currentColor"/></symbol>
+<symbol id="i-printer" viewBox="0 0 24 24"><path d="M7 9V3h10v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><rect x="7" y="14" width="10" height="7"/></symbol>
+<symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 7l8.5 6 8.5-6"/></symbol>
+<symbol id="i-tv" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 21h8M12 16v5"/></symbol>
+<symbol id="i-book" viewBox="0 0 24 24"><path d="M2 5h7a3 3 0 0 1 3 3v12a2 2 0 0 0-2-2H2z"/><path d="M22 5h-7a3 3 0 0 0-3 3v12a2 2 0 0 1 2-2h8z"/></symbol>
+<symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></symbol>
+<symbol id="i-call" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol>
+<symbol id="i-remote" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8"/><path d="M10.5 7.5l5 3.5-2.2.6 1.2 2.4-1.2.6-1.2-2.4-1.6 1.6z"/></symbol>
+<symbol id="i-tag" viewBox="0 0 24 24"><path d="M3 12V4h8l10 10-8 8z"/><circle cx="7.5" cy="8.5" r="1.2" fill="currentColor"/></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-6 7-11a7 7 0 0 0-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+<symbol id="i-smile" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 14a4.5 4.5 0 0 0 8 0"/><circle cx="9" cy="10" r=".8" fill="currentColor"/><circle cx="15" cy="10" r=".8" fill="currentColor"/></symbol>
+</defs></svg>
 <header>
 <a class="brand" href="/" aria-label="HOFI-TEC Startseite">HOFI-TEC</a>
-<nav aria-label="Hauptmenü">
+<button type="button" class="btn-fs" id="fs" aria-pressed="false" aria-label="Schrift grösser" hidden>A+</button>
+<input type="checkbox" id="nav-check" class="nav-check" aria-label="Menü öffnen oder schliessen">
+<label for="nav-check" class="menu-toggle" aria-hidden="true">Menü</label>
+<nav id="site-nav" aria-label="Hauptmenü">
 <a href="#leistungen">Leistungen</a>
 <a href="#ablauf">So läuft es ab</a>
 <a href="#ueber-uns">Über uns</a>
 <a href="/blog/">Blog</a>
 <a href="#fragen">Fragen</a>
 <a class="btn-nav" href="tel:+41798504149">079 850 41 49</a>
-<button type="button" class="btn-fs" id="fs" aria-pressed="false" aria-label="Schrift grösser" hidden>A+</button>
 </nav>
 </header>
 
 <main>
 <section class="hero">
+<div class="hero-inner">
+<div class="hero-text">
 <p class="kicker">Technik-Hilfe für zu Hause · Altstätten und Ostschweiz</p>
-<h1>Computer-, Handy- und WLAN-Hilfe für zu Hause. Wir helfen dir.</h1>
+<h1>Computer-, Handy- und WLAN-Hilfe für zu Hause. <span class="hl">Wir helfen dir.</span></h1>
 <p class="lead">Wir kommen bei dir vorbei oder helfen dir am Telefon. Mit Geduld und in einfachen Worten.</p>
 <div class="actions">
 <a class="btn primary" href="tel:+41798504149">Jetzt anrufen: 079 850 41 49</a>
 <a class="btn wa" rel="noopener noreferrer" href="https://wa.me/41798504149?text=Hallo%20HOFI-TEC%2C%20ich%20brauche%20Hilfe%20bei%3A%20">Per WhatsApp schreiben</a>
 <a class="btn" href="#kontakt">Wir rufen dich zurück</a>
 </div>
+</div>
+<div class="hero-art"><svg viewBox="0 0 480 360" role="img" aria-label="Illustration: Laptop und Handy mit WLAN-Symbol und Häkchen">
+<ellipse cx="240" cy="190" rx="220" ry="160" fill="var(--tint)"/>
+<path d="M120 292h240" stroke="var(--ink)" stroke-width="6" stroke-linecap="round"/>
+<rect x="148" y="116" width="184" height="124" rx="10" fill="#fff" stroke="var(--ink)" stroke-width="6"/>
+<path d="M128 252h224l-14 40H142z" fill="var(--accent)"/>
+<rect x="166" y="136" width="64" height="8" rx="4" fill="var(--line)"/>
+<rect x="166" y="156" width="148" height="8" rx="4" fill="var(--line)"/>
+<rect x="166" y="176" width="110" height="8" rx="4" fill="var(--line)"/>
+<circle cx="296" cy="208" r="22" fill="var(--warm)"/>
+<path d="M285 208l8 8 14-16" fill="none" stroke="var(--ink)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="352" y="170" width="70" height="122" rx="14" fill="#fff" stroke="var(--ink)" stroke-width="6"/>
+<circle cx="387" cy="278" r="4" fill="var(--ink)"/>
+<rect x="366" y="188" width="42" height="8" rx="4" fill="var(--warm)"/>
+<rect x="366" y="206" width="30" height="8" rx="4" fill="var(--line)"/>
+<g fill="none" stroke="var(--warm)" stroke-width="8" stroke-linecap="round">
+<path d="M196 70a62 62 0 0 1 88 0"/><path d="M214 90a38 38 0 0 1 52 0"/></g>
+<circle cx="240" cy="108" r="7" fill="var(--warm)"/>
+<path d="M62 120c0-18 14-30 34-30s34 12 34 30-14 30-34 30c-6 0-11-1-16-3l-18 9 4-17c-3-5-4-12-4-19z" fill="var(--accent)"/>
+<circle cx="84" cy="120" r="4" fill="#fff"/><circle cx="97" cy="120" r="4" fill="#fff"/><circle cx="110" cy="120" r="4" fill="#fff"/>
+</svg></div>
+</div>
+<ul class="trust">
+<li><span class="ico"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tag"/></svg></span><span><strong>Preis vorher</strong>Du weisst vor dem Termin, was es kostet.</span></li>
+<li><span class="ico"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg></span><span><strong>Ganze Ostschweiz</strong>Hausbesuch, Telefon oder Fernwartung.</span></li>
+<li><span class="ico"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-smile"/></svg></span><span><strong>Geduldig erklärt</strong>Wir erklären so oft, bis es klar ist.</span></li>
+</ul>
 </section>
 
 <section id="leistungen">
 <h2>Unsere Leistungen: Wobei wir helfen</h2>
 <p class="sub">Kein Anliegen ist zu klein. Wenn du etwas nicht findest, ruf einfach an.</p>
 <div class="grid cards">
-<div class="card"><h3>Laptop und PC</h3><p>Langsam, hängt oder startet nicht? Wir bringen ihn wieder in Gang und richten Programme ein.</p></div>
-<div class="card"><h3>Handy und Tablet</h3><p>Einrichten, Fotos sichern, Nachrichten und Apps verstehen.</p><p class="more-link"><a href="/blog/fotos-vom-handy-sichern/">Ratgeber: Fotos sichern →</a></p></div>
-<div class="card"><h3>WLAN und Internet</h3><p>Router einrichten, Empfang im ganzen Haus verbessern, Geräte verbinden.</p><p class="more-link"><a href="/blog/wlan-reicht-nicht-bis-ins-obergeschoss/">Ratgeber: WLAN im Obergeschoss →</a></p></div>
-<div class="card"><h3>Drucker und Zubehör</h3><p>Anschliessen, einrichten und wieder zum Drucken bringen.</p></div>
-<div class="card"><h3>E-Mail und Online-Banking</h3><p>Sicher einrichten und in Ruhe erklären, worauf du achten musst.</p><p class="more-link"><a href="/blog/betrug-erkennen-mails-sms-anrufe/">Ratgeber: Betrug erkennen →</a></p></div>
-<div class="card"><h3>Fernseher und Smart Home</h3><p>Streaming, Sender, Lautsprecher und smarte Geräte einfach nutzbar machen.</p></div>
-<div class="card"><h3>Einzelunterricht</h3><p>Du lernst in deinem Tempo, bei dir zu Hause oder am Telefon.</p></div>
+<div class="card"><span class="ico"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-laptop"/></svg></span><h3>Laptop und PC</h3><p>Langsam, hängt oder startet nicht? Wir bringen ihn wieder in Gang und richten Programme ein.</p></div>
+<div class="card"><span class="ico"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-phone"/></svg></span><h3>Handy und Tablet</h3><p>Einrichten, Fotos sichern, Nachrichten und Apps verstehen.</p><p class="more-link"><a href="/blog/fotos-vom-handy-sichern/">Ratgeber: Fotos sichern →</a></p></div>
+<div class="card"><span class="ico"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-wifi"/></svg></span><h3>WLAN und Internet</h3><p>Router einrichten, Empfang im ganzen Haus verbessern, Geräte verbinden.</p><p class="more-link"><a href="/blog/wlan-reicht-nicht-bis-ins-obergeschoss/">Ratgeber: WLAN im Obergeschoss →</a></p></div>
+<div class="card"><span class="ico"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-printer"/></svg></span><h3>Drucker und Zubehör</h3><p>Anschliessen, einrichten und wieder zum Drucken bringen.</p></div>
+<div class="card"><span class="ico"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg></span><h3>E-Mail und Online-Banking</h3><p>Sicher einrichten und in Ruhe erklären, worauf du achten musst.</p><p class="more-link"><a href="/blog/betrug-erkennen-mails-sms-anrufe/">Ratgeber: Betrug erkennen →</a></p></div>
+<div class="card"><span class="ico"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tv"/></svg></span><h3>Fernseher und Smart Home</h3><p>Streaming, Sender, Lautsprecher und smarte Geräte einfach nutzbar machen.</p></div>
+<div class="card"><span class="ico"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-book"/></svg></span><h3>Einzelunterricht</h3><p>Du lernst in deinem Tempo, bei dir zu Hause oder am Telefon.</p></div>
 </div>
 </section>
 
 <section class="tint">
 <h2>Hausbesuch, Telefon oder Fernwartung: Drei Wege zur Hilfe</h2>
 <div class="grid ways">
-<div><h3>Hausbesuch</h3><p>Wir kommen zu dir, schauen uns alles vor Ort an und erklären jeden Schritt.</p></div>
-<div><h3>Telefonhilfe</h3><p>Du beschreibst uns das Problem, wir führen dich Schritt für Schritt zur Lösung.</p></div>
-<div><h3>Fernwartung</h3><p>Mit deiner Erlaubnis sehen wir auf deinen Bildschirm und lösen das Problem für dich.</p></div>
+<div class="way"><span class="ico"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-home"/></svg></span><h3>Hausbesuch</h3><p>Wir kommen zu dir, schauen uns alles vor Ort an und erklären jeden Schritt.</p></div>
+<div class="way"><span class="ico"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-call"/></svg></span><h3>Telefonhilfe</h3><p>Du beschreibst uns das Problem, wir führen dich Schritt für Schritt zur Lösung.</p></div>
+<div class="way"><span class="ico"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-remote"/></svg></span><h3>Fernwartung</h3><p>Mit deiner Erlaubnis sehen wir auf deinen Bildschirm und lösen das Problem für dich.</p></div>
 </div>
 </section>
 

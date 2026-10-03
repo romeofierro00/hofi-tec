@@ -25,12 +25,14 @@
 <body>
 <header>
 <a class="brand" href="/" aria-label="HOFI-TEC Startseite">HOFI-TEC</a>
-<nav aria-label="Hauptmenü">
+<button type="button" class="btn-fs" id="fs" aria-pressed="false" aria-label="Schrift grösser" hidden>A+</button>
+<input type="checkbox" id="nav-check" class="nav-check" aria-label="Menü öffnen oder schliessen">
+<label for="nav-check" class="menu-toggle" aria-hidden="true">Menü</label>
+<nav id="site-nav" aria-label="Hauptmenü">
 <a href="/#leistungen">Leistungen</a>
 <a href="/blog/">Blog</a>
 <a href="/#kontakt">Kontakt</a>
 <a class="btn-nav" href="tel:+41798504149">079 850 41 49</a>
-<button type="button" class="btn-fs" id="fs" aria-pressed="false" aria-label="Schrift grösser" hidden>A+</button>
 </nav>
 </header>
 <main class="prose-wrap">
