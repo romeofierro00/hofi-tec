@@ -291,3 +291,10 @@ html.big .glossary .gl-see{font-size:20px}
   nav .btn-fs::after{content:"Schrift grösser";font-weight:500}
   html.big nav .btn-fs::after{content:"Schrift kleiner"}
 }
+
+/* Anruf-Knopf auf dem Handy: kleiner runder Knopf mit Telefon-Symbol */
+@media(max-width:700px){
+  .call-fab,html.big .call-fab{display:grid;place-items:center;left:auto;right:16px;bottom:16px;width:58px;height:58px;padding:0;border-radius:50%;font-size:0;box-shadow:0 4px 14px rgba(0,0,0,.28)}
+  .call-fab .i{width:28px;height:28px;stroke-width:2}
+  body{padding-bottom:84px}
+}
