@@ -1,0 +1,41 @@
+name: Deploy zu Hostpoint
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-hostpoint
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      HP_HOST: ${{ secrets.HOSTPOINT_HOST }}
+      HP_USER: ${{ secrets.HOSTPOINT_USER }}
+      HP_PATH: ${{ secrets.HOSTPOINT_PATH }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Zugangsdaten prüfen
+        run: |
+          if [ -z "$HP_HOST" ] || [ -z "$HP_USER" ] || [ -z "$HP_PATH" ] || [ -z "${{ secrets.HOSTPOINT_SSH_KEY }}" ]; then
+            echo "Hostpoint-Zugangsdaten fehlen, Deploy übersprungen."
+            echo "SKIP=1" >> "$GITHUB_ENV"
+          fi
+      - name: SSH-Schlüssel einrichten
+        if: env.SKIP != '1'
+        run: |
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "${{ secrets.HOSTPOINT_SSH_KEY }}" > ~/.ssh/id_deploy
+          chmod 600 ~/.ssh/id_deploy
+          ssh-keyscan -H "$HP_HOST" >> ~/.ssh/known_hosts
+      - name: Dateien hochladen
+        if: env.SKIP != '1'
+        run: |
+          rsync -rltz --delete \
+            --exclude '.git/' --exclude '.github/' --exclude '.claude/' \
+            --exclude '.nojekyll' --exclude '_headers' --exclude '_redirects' \
+            -e "ssh -i ~/.ssh/id_deploy" \
+            ./ "$HP_USER@$HP_HOST:$HP_PATH/"
