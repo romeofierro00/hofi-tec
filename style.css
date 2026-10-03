@@ -29,10 +29,9 @@ h1{font-weight:600}
 h1{font-size:60px;line-height:1.1;max-width:820px;margin-bottom:24px}
 .lead{font-size:24px;max-width:640px;margin:0 0 40px;color:var(--muted)}
 .actions{display:flex;gap:16px;flex-wrap:wrap}
-.btn{display:inline-block;font:inherit;font-size:22px;text-decoration:none;color:var(--ink);border:2px solid oklch(0.8 0.04 285);border-radius:8px;padding:16px 28px;background:none;cursor:pointer}
+.btn{display:inline-block;font:inherit;font-size:22px;text-decoration:none;color:var(--ink);border:2px solid var(--accent);border-radius:8px;padding:16px 28px;background:none;cursor:pointer}
 .btn:hover{background:var(--tint);color:var(--ink)}
 .btn.primary{font-weight:600;border-color:var(--warm-d);background:var(--warm);color:var(--ink)}
-.btn.wa{border-color:#1a7f4b;color:#0f5c35}.btn.wa:hover{background:#e3f6ec;color:#0f5c35}
 .wa-link{display:inline-block;font-size:22px;font-weight:500;color:#0f5c35;margin:0 0 16px}
 .btn.primary:hover{background:var(--warm-d);color:var(--ink)}
 .grid{display:grid;gap:20px}
@@ -169,3 +168,32 @@ html.big .btn{white-space:normal;text-align:center}
 }
 html.big .menu-toggle,html.big .btn-fs{font-size:20px}
 html.big .trust span{font-size:21px}
+
+/* Blog-Karten und -Liste mit Icon */
+.post-art{display:grid;place-items:center;height:120px;margin:-28px -28px 20px;border-radius:8px 8px 0 0}
+.post-art .i{width:72px;height:72px;padding:18px;border-radius:50%;background:#fff;color:var(--accent);box-shadow:0 2px 8px rgba(60,40,140,.12)}
+.a1{background:linear-gradient(135deg,oklch(0.95 0.04 285),oklch(0.88 0.07 285))}
+.a2{background:linear-gradient(135deg,oklch(0.96 0.06 90),oklch(0.89 0.11 82))}
+.a3{background:linear-gradient(135deg,oklch(0.42 0.14 285),oklch(0.3 0.14 285))}
+.a2 .i{color:var(--ink)}
+.post-item{display:grid;grid-template-columns:72px 1fr;gap:20px;align-items:start}
+.post-ico{display:grid;place-items:center;width:72px;height:72px;border-radius:16px;color:var(--accent)}
+.post-ico .i{width:36px;height:36px}
+.post-ico.a3{color:#fff}
+.post-ico.a2{color:var(--ink)}
+.post-body{min-width:0}
+@media(max-width:700px){.post-item{grid-template-columns:56px 1fr;gap:14px}.post-ico{width:56px;height:56px;border-radius:12px}.post-ico .i{width:28px;height:28px}}
+/* Hero auf Handy: Illustration direkt nach dem Einleitungstext */
+@media(max-width:900px){
+  .hero-inner{display:flex;flex-direction:column;gap:0}
+  .hero-text{display:contents}
+  .hero-text .kicker{order:1}.hero-text h1{order:2}.hero-text .lead{order:3}
+  .hero-art{order:4;width:min(100%,300px);margin:0 auto 28px}
+  .hero-text .actions{order:5;width:100%}
+  .hero-text .lead{margin-bottom:20px}
+}
+
+.post-item time{display:inline}
+.post-item .post-body{font-size:17px;color:var(--muted)}
+.post-item .post-body time{font-size:inherit}
+.post-item .post-body p{font-size:19px}
