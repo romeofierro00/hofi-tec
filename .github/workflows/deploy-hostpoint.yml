@@ -15,27 +15,28 @@ jobs:
     env:
       HP_HOST: ${{ secrets.HOSTPOINT_HOST }}
       HP_USER: ${{ secrets.HOSTPOINT_USER }}
+      HP_PASS: ${{ secrets.HOSTPOINT_PASSWORD }}
       HP_PATH: ${{ secrets.HOSTPOINT_PATH }}
     steps:
       - uses: actions/checkout@v4
       - name: Zugangsdaten prüfen
         run: |
-          if [ -z "$HP_HOST" ] || [ -z "$HP_USER" ] || [ -z "$HP_PATH" ] || [ -z "${{ secrets.HOSTPOINT_SSH_KEY }}" ]; then
+          if [ -z "$HP_HOST" ] || [ -z "$HP_USER" ] || [ -z "$HP_PASS" ] || [ -z "$HP_PATH" ]; then
             echo "Hostpoint-Zugangsdaten fehlen, Deploy übersprungen."
             echo "SKIP=1" >> "$GITHUB_ENV"
           fi
-      - name: SSH-Schlüssel einrichten
+      - name: lftp installieren
+        if: env.SKIP != '1'
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq lftp
+      - name: Dateien per SFTP hochladen
         if: env.SKIP != '1'
         run: |
-          install -m 700 -d ~/.ssh
-          printf '%s\n' "${{ secrets.HOSTPOINT_SSH_KEY }}" > ~/.ssh/id_deploy
-          chmod 600 ~/.ssh/id_deploy
-          ssh-keyscan -H "$HP_HOST" >> ~/.ssh/known_hosts
-      - name: Dateien hochladen
-        if: env.SKIP != '1'
-        run: |
-          rsync -rltz --delete \
-            --exclude '.git/' --exclude '.github/' --exclude '.claude/' \
-            --exclude '.nojekyll' --exclude '_headers' --exclude '_redirects' \
-            -e "ssh -i ~/.ssh/id_deploy" \
-            ./ "$HP_USER@$HP_HOST:$HP_PATH/"
+          lftp -u "$HP_USER","$HP_PASS" "sftp://$HP_HOST" <<LFTP
+          set sftp:auto-confirm yes
+          set net:max-retries 3
+          mirror -R --delete --verbose \
+            --exclude-glob .git/ --exclude-glob .github/ --exclude-glob .claude/ \
+            --exclude-glob .nojekyll --exclude-glob _headers --exclude-glob _redirects \
+            . "$HP_PATH"
+          quit
+          LFTP
