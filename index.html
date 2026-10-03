@@ -19,7 +19,9 @@
 <meta property="og:image" content="https://hofi-tec.ch/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="HOFI-TEC: Computer-, Handy- und WLAN-Hilfe in Altstätten und der Ostschweiz">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image:alt" content="HOFI-TEC: Computer-, Handy- und WLAN-Hilfe in Altstätten und der Ostschweiz">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": ["LocalBusiness", "ProfessionalService"], "name": "HOFI-TEC", "description": "Computer-, Handy- und WLAN-Hilfe zu Hause in Altstätten und der Ostschweiz. Hausbesuch, Telefonhilfe und Fernwartung.", "url": "https://hofi-tec.ch/", "image": "https://hofi-tec.ch/og-image.png", "logo": "https://hofi-tec.ch/apple-touch-icon.png", "telephone": "+41798504149", "email": "info@hofi-tec.ch", "address": {"@type": "PostalAddress", "addressLocality": "Altstätten", "postalCode": "9450", "addressRegion": "SG", "addressCountry": "CH"}, "areaServed": [{"@type": "AdministrativeArea", "name": "Ostschweiz"}, {"@type": "City", "name": "Altstätten"}], "availableLanguage": "de", "knowsAbout": ["Laptop Hilfe", "Handy einrichten", "WLAN einrichten", "Drucker einrichten", "E-Mail und Online-Banking", "Smart Home", "IT-Unterricht"], "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Leistungen", "itemListElement": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Laptop und PC Hilfe"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Handy und Tablet einrichten"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "WLAN und Internet einrichten"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Drucker einrichten"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "E-Mail und Online-Banking einrichten"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Fernseher und Smart Home einrichten"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Einzelunterricht für Computer und Handy"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Hausbesuch"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Telefonhilfe"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Fernwartung"}}]}, "founder": [{"@type": "Person", "name": "Justin Hömke"}, {"@type": "Person", "name": "Romeo Fierro"}]}</script>
 <link rel="stylesheet" href="style.css">
 </head>
@@ -43,9 +45,8 @@
 </defs></svg>
 <header>
 <a class="brand" href="/" aria-label="HOFI-TEC Startseite">HOFI-TEC</a>
-<button type="button" class="btn-fs" id="fs" aria-pressed="false" aria-label="Schrift grösser" hidden>A+</button>
-<input type="checkbox" id="nav-check" class="nav-check" aria-label="Menü öffnen oder schliessen">
-<label for="nav-check" class="menu-toggle" aria-hidden="true">Menü</label>
+<input type="checkbox" id="nav-check" class="nav-check" aria-label="Menü öffnen oder schliessen" aria-controls="site-nav">
+<label for="nav-check" class="menu-toggle" aria-hidden="true"><span class="bars"></span></label>
 <nav id="site-nav" aria-label="Hauptmenü">
 <a href="#leistungen">Leistungen</a>
 <a href="#ablauf">So läuft es ab</a>
@@ -53,6 +54,7 @@
 <a href="/blog/">Blog</a>
 <a href="#fragen">Fragen</a>
 <a class="btn-nav" href="tel:+41798504149">079 850 41 49</a>
+<button type="button" class="btn-fs" id="fs" aria-pressed="false" aria-label="Schrift grösser" hidden>A+</button>
 </nav>
 </header>
 
@@ -178,6 +180,7 @@
 <label>Wann passt es dir? (optional)<input name="zeit" maxlength="100" placeholder="zum Beispiel morgen Vormittag"></label>
 <label>Worum geht es? (optional)<textarea name="msg" rows="3" maxlength="1000"></textarea></label>
 <button class="btn primary" type="submit">Rückruf anfordern</button>
+<p class="form-note">Kostenlose und unverbindliche Rückmeldung – wir melden uns meist noch am selben Tag.</p>
 </form>
 </div>
 </section>
