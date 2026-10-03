@@ -111,3 +111,6 @@ html.big form label{font-size:22px}
 html.big .compare{font-size:20px}
 a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 html.big .btn{white-space:normal;text-align:center}
+
+.more-link{margin:12px 0 0!important;font-size:18px!important}
+.related{padding-left:1.2em}
